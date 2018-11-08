@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    font-family: Roboto;
+}
+/* Nav menu */
+nav {
+    display: inline-flex;
+    width: 100%;
+    height: 80px;
+    justify-content: space-around;
+    background-color: azure;
+    justify-items: center;
+    margin: 0;
+}
+nav > ul {
+    list-style-type: none;
+    overflow: hidden;
+    display: inline-flex;
+    margin: 0;
+}
+li {
+    width: 140px;
+    height: 40px;
+    display: inline-flex;
+    float: left;
+    margin: 20px 30px 10px 30px;
+    /* background-color: rgb(209, 220, 230); */
+    padding: 15px 15px;
+    justify-content: center;
+    font-weight: bold;
+}
+
+li:hover {
+    background-color: rgb(206, 253, 253);
+}
+/* Banner */
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    height: 400px;
+    background-image: url("codes-computers-data-159299.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+.banner h2 {
+    color: white;
+    font-size: 2.6em;
+    font-weight: bold;
+}
+/*Description*/
+.description {  
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    height: 450px;
+}
+.description p {
+    margin: 900px 40px;
+    font-size: 2.1em;
+    text-align: center;
+}
+/*Content*/
+.content {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    height: 450px;
+    background-image: url("book-computer-design-326424.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+} 
+.content p {
+    margin: 900px 40px;
+    font-size: 2.1em;
+    text-align: center;
+    color: rgb(163, 107, 44);
+} 
+/*Footer*/
+footer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 120px;
+    background-color: black;
+    color: white;
+    font-size: 2em;
+    border-top: 1px solid white;
+}
