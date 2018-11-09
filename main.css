@@ -4,6 +4,7 @@ body {
     padding: 0;
     font-family: Roboto;
 }
+
 /* Nav menu 
 ========================================= */
 nav {
@@ -14,14 +15,17 @@ nav {
     width: 100%;
     height: 55px;
     background-color: azure;
-    margin: 0;  
-    padding: 0;
+    margin: 0px 0px;  
+    padding: 0px 0px;
     border-bottom: 1px solid azure;
     position: fixed;
 }
 li > a {
+    width: 200px;
+    height: 25px;
+    text-align: center;
     margin: 0px 0px;
-    padding: 0px 0px;
+    padding: 15px 15px;
     text-decoration: none;
     color: black;
 }
@@ -40,11 +44,8 @@ nav > ul {
     -o-transition: all 0.5s ease;
 }
 li {
-    width: 190px;
-    height: 25px;
     display: inline-flex;
-    margin: 0 0px 0 0px;
-    padding: 15px 15px;
+    margin: 0px 0px;  
     justify-content: center;
     font-weight: bold;
     font-size: 1.2em;
@@ -61,7 +62,7 @@ li:hover {
 ul li ul {
     text-align: center;
     position: absolute;
-    margin-top: 40px;
+    margin-top: 55px;
     margin-right: 40px;
     display: none;
     color: whitesmoke;
@@ -77,13 +78,18 @@ ul li ul:hover {
   flex-direction: column;
   justify-content: center;
 }
-ul li ul li:hover, ul li ul li a {
+ul li ul a:hover {
     color: black;
 }
 .dropDownMenu a {
     color: rgb(248, 248, 248);
-    padding: 0px 0px;
+    width: 200px;
+    height: 25px;
+    text-align: center;
     margin: 0px 0px;
+    padding: 15px 15px;
+    text-decoration: none;
+    color: white;    
 }
 .menuActive {
     background-color: rgb(206, 213, 253);
@@ -114,6 +120,7 @@ ul li ul li:hover, ul li ul li a {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
+
 /*        Main page
 ============================*/
 /*Description*/
@@ -172,6 +179,7 @@ ul li ul li:hover, ul li ul li a {
     background-color: rgba(0, 211, 7, 0.9);
     box-shadow: -6px 6px 18px rgb(158, 158, 158);
 }
+
 /*Quizzes section */
 .quizMain {
         border-top: 4px solid white;
@@ -215,14 +223,12 @@ main > p {
     padding: 40px;
     font-size: 1.3em;
 }
-
 .buttonsContainer {
     display: flex;
     margin: 0 100px;
     justify-content: space-evenly;
     padding: 50px;
 }
-
 
 /*            Quizzes pages
 =========================================*/
@@ -268,7 +274,6 @@ main > form {
     font-size: 1.3em;
 }
 
-
 /*Footer
 ==================================================*/
 footer {
@@ -286,8 +291,6 @@ footer {
     -webkit-text-stroke-color: rgb(68, 100, 204);
 }
 
-
-
 /*Adjust style to screen size
 ==================================================*/
 @media screen and (max-width: 1120px) {
@@ -296,49 +299,30 @@ footer {
     }
 }
 @media screen and (max-width: 950px) {
+    h2  {
+        font-size: 1.1em;
+    }
     nav {
         width: 100%;
-        height: 200px;
+        height: 215px;
         position: relative;
     }
-
     li {
         width: 100%;
-        height: 12px;
-        display: inline-flex;
-        margin: 0 0px 0 0px;
-        padding: 14px 10px;
-        justify-content: center;
+    }
+    li > a {
+        height: 12px; 
         font-weight: bold;
-        font-size: 0.9em;
-        transition: all 0.6s ease;
-        -webkit-transition: all 0.4s ease;
-        -moz-transition: all 0.6s ease;
-        -ms-transition: all 0.6s ease;
-        -o-transition: all 0.6s ease;
+        font-size: 0.7em;
     }
     ul li ul {
-        text-align: center;
-        position: absolute;
-        margin-top: 20px;
-        margin-right: 40px;
+        width: 100%;
+        margin-top: 40px;
         display: none;
         color: whitesmoke;
     }
-    ul li ul li {
-        text-align: center;
-        border: 1px solid whitesmoke;
-        font-size: 0.9em;
+    .dropDownMenu a {
+        height: 12px; 
+        width: 50px;
     }
-    ul li:hover > ul,
-    ul li ul:hover {
-    display: inline-block;
-    flex-direction: column; 
-    justify-content: center;
-}
-    ul li ul li:hover {
-    display: inline-flex;
-    color: black;
-    background-color: rgb(205, 248, 255);
-}
 }
