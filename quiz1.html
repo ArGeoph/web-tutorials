@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Web Tutorials - Quiz 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="ui.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="header">        
+    </div>
+    <nav>
+        <ul class="navMenu">
+            <li><a href="index.html">Main page</a></li>
+            <li><a href="html5_css.html">CSS/HTML</li>
+            <li><a href="javascript.html">JavaScript</a></li>
+            <li><a href="xml_ajax.html">XML/Ajax</a></li>
+            <li class="menuActive">Quizzes
+                    <ul class="dropDownMenu">
+                    <li class="menuActive"><a href="quiz1.html">Quiz1</a></li>
+                    <li>Quiz1</li>
+                    <li>Quiz1</li>
+                </ul>           
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+            <h2>Quiz 1, HTML5/CSS</h2>
+
+            <form id="quiz1">
+                <div class="quizContainer" id="quiz1Question1">
+                    <h3>Question 1</h3>
+                    <p class="quizQuestion"> Which HTML element is used to put image on a webpage?</p>
+                    <div class="optionsContainer">
+                        <p><input type="radio" name="quiz1Question1Answer" value="p">&lt;p&gt;</p>
+                        <p><input type="radio" name="quiz1Question1Answer" value="a">&lt;a&gt;</p>
+                        <p><input type="radio" name="quiz1Question1Answer" value="image">&lt;image&gt;</p>
+                        <p><input type="radio" name="quiz1Question1Answer" value="img">&lt;img&gt;</p>
+                        <p><input type="radio" name="quiz1Question1Answer" value="div">&lt;div&gt;</p>
+                    </div>
+                </div>
+
+            <div class="buttonsContainer">
+                <button id="quiz1SubmitButton" class="mainPageButton">Submit results</button>
+                <button id="quiz1SubmitButton" class="mainPageButton">Reset quiz</button>
+            </div>  
+            </form>            
+        </main>
+
+        <footer>
+            &copy; Kirill Golubev 2018 
+        </footer>
+</body>
+</html>
