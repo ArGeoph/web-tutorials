@@ -18,7 +18,7 @@
             <li><a href="index.html">Main page</a></li>
             <li><a href="html5_css.html">HTML5</a></li>
             <li><a href="javascript.html">JavaScript</a></li>
-            <li><a href="xml_ajax.html">XML/Ajax</a></li>
+            <li><a href="ajax.html">Ajax</a></li>
             <li><a href="quizzes.html">Quizzes</a>
                     <ul class="dropDownMenu">
                     <li class="menuActive"><a href="quiz1.html">Quiz1</a></li>
@@ -29,9 +29,9 @@
         </ul>
     </nav>
 
-    <main>
-            <h2>Quiz 1, HTML5/CSS</h2>
-
+    <main class="quiz">
+            <h2>Quiz 1, HTML5</h2>
+            
             <form id="quiz1">
                 <div class="quizContainer" id="quiz1Question1">
                     <h3>Question 1</h3>
@@ -45,8 +45,20 @@
                     </div>
                 </div>
 
+                <div class="quizContainer" id="quiz1Question2">
+                        <h3>Question 1</h3>
+                        <p class="quizQuestion"> Which HTML element is used to put image on a webpage?</p>
+                        <div class="optionsContainer">
+                            <p><input type="radio" name="quiz1Question1Answer" value="p">&lt;p&gt;</p>
+                            <p><input type="radio" name="quiz1Question1Answer" value="a">&lt;a&gt;</p>
+                            <p><input type="radio" name="quiz1Question1Answer" value="image">&lt;image&gt;</p>
+                            <p><input type="radio" name="quiz1Question1Answer" value="img">&lt;img&gt;</p>
+                            <p><input type="radio" name="quiz1Question1Answer" value="div">&lt;div&gt;</p>
+                        </div>
+                </div>                
+
             <div class="buttonsContainer">
-                <button id="quiz1SubmitButton" class="mainPageButton">Submit results</button>
+                <button id="quiz1SubmitButton" class="mainPageButton">Submit answers</button>
                 <button id="quiz1SubmitButton" class="mainPageButton">Reset quiz</button>
             </div>  
             </form>            

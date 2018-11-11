@@ -19,6 +19,7 @@ nav {
     padding: 0px 0px;
     border-bottom: 1px solid rgb(0, 0, 0);
     position: fixed;
+    box-shadow: 3px 3px 10px rgb(82, 78, 78);
 }
 li > a {
     width: 200px;
@@ -93,9 +94,7 @@ ul li ul a:hover {
 }
 .menuActive {
     background-color: rgb(206, 213, 253);
-    border-top: 1px solid grey;
-    border-left: 1px solid grey;
-    border-right: 1px solid grey;
+    border: 1px solid grey;
 }
 
 /* Banner */
@@ -234,6 +233,7 @@ main > p {
 =========================================*/
 main {
     width: 100%;
+    min-height: 800px;
     padding: 0px 0px;
     margin: 0px 0px;
     background-image: url("pexels-photo-1020320.jpeg");
@@ -288,7 +288,7 @@ footer {
     font-size: 2.1em;
     border-top: 4px solid white;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgb(68, 100, 204);
+    -webkit-text-stroke-color: rgb(68, 204, 109);
 }
 
 /*Adjust style to screen size
