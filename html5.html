@@ -141,7 +141,7 @@
                 <div class="example">
                     <label>HTML code</label><br>
                     <div class="codeExample">
-                        &lt;select name="cars"&lt;<br>
+                        &lt;select name="cars"&gt;<br>
                                 &lt;option value="volvo"&gt;Volvo&lt;/option&gt;<br>
                                 &lt;option value="saab" selected&gt;Saab&lt;/option&gt;<br>
                                 &lt;option value="fiat"&gt;Fiat&lt;/option&gt;<br>
@@ -222,8 +222,116 @@
                         </div>                                  
                 </div>
 
+                <h4>Input type radio</h4>
+                <p>HTML5 offers an input type called radio button that allows to choose only one option. Make sure that all options have the same name attribute,
+                    or otherwise users will be able to choose more than one option.</p>
 
-   
+                <h5>Example</h5>
+                <div class="example">
+                    <label>HTML code</label><br>
+                    <div class="codeExample">
+                        &lt;form&gt;<br>
+                              &lt;input type="radio" name="gender" value="male" checked&gt; Male<br>
+                              &lt;input type="radio" name="gender" value="female"&gt; Female<br>
+                              &lt;input type="radio" name="gender" value="other"&gt; Other<br>
+                        &lt;/form&gt; 
+                    </div>
+
+                    <label>Results</label><br>    
+                        <div class="resultExample">                           
+                            <form>
+                                  <input type="radio" name="gender" value="male" checked> Male<br>
+                                  <input type="radio" name="gender" value="female"> Female<br>
+                                  <input type="radio" name="gender" value="other"> Other
+                            </form> 
+                        </div>                                  
+                </div>
+
+                <h4>Input type text</h4>
+                <p>Input type equal to text defines a one-line input field for text input.</p>
+
+                <h5>Example</h5>
+                <div class="example">
+                    <label>HTML code</label><br>
+                    <div class="codeExample">
+                        &lt;form&gt;<br>
+                              First name:<br>
+                              &lt;input type="text" name="firstname"&gt;<br>
+                              Last name:<br>
+                              &lt;input type="text" name="lastname"&gt;<br>
+                        &lt;/form&gt;<br> 
+                    </div>
+
+                    <label>Results</label><br>    
+                        <div class="resultExample">                           
+                            <form>
+                              First name:<br>
+                              <input type="text" name="firstname"><br>
+                              Last name:<br>
+                              <input type="text" name="lastname">
+                            </form> 
+                        </div>                                  
+                </div>
+
+                <h4>Input type number</h4>
+                <p>Number input type provides web developers with a tool that can be used for numeric user input. It also allows to apply restrictions, such as
+                    the minimum and the maximum values, increment value and others. Please note that these additional restrictions can vary depending on the browser,
+                    so you will need to check browser documentation first.
+                </p>
+
+                <h5>Example</h5>
+                <div class="example">
+                    <label>HTML code</label><br>
+                    <div class="codeExample">
+                        &lt;form&gt;<br>
+                            &lt;label&gt;1 sec&lt;/label&gt;<br>
+                            &lt;input type="range" id="slideshowSpeed" min="1" max="20" step="1" value="3" /&gt;<br>
+                            &lt;label&gt;20 sec&lt;/label&gt;<br>
+                        &lt;/form&gt;<br> 
+                    </div>
+
+                    <label>Results</label><br>    
+                        <div class="resultExample">   
+                            <form>                     
+                                <label>1 sec</label>
+                                <input type="range" id="slideshowSpeed" min="1" max="20" step="1" value="3" />
+                                <label>20 sec</label>
+                            </form>   
+                        </div>                                  
+                </div>
+
+                
+
+                
+                <h4>Input type submit and reset</h4>
+                <p>HTML5 introduced two new button types, with submit and reset input types. The subimt button allows users to submit data entered to input 
+                    fields to the script specified in the form action attribute. Please note that in order the submit button to work properly,
+                    all fields must have names attributes. The reset button clears all the fields and leaves them blank when it pressed.
+                </p>
+
+                <div class="example">
+                    <label>HTML code</label><br>
+                    <div class="codeExample">
+                        &lt;form action="#" method="GET"&gt;<br>
+                                  First name:  &lt;input type="text" name="firstName"&gt;<br>
+                                  Last name:  &lt;input type="text" name="lastName"&gt;<br>
+                                   &lt;input type="submit" value="Submit"&gt;<br>
+                                &lt;input type="reset" value="Clear fields"&gt;<br>
+                        &lt;/form><br> 
+                    </div>
+
+                    <label>Results</label><br>    
+                        <div class="resultExample">                 
+                            <form action="#" method="GET">
+                                      First name: <input type="text" name="firstName"><br>
+                                      Last name: <input type="text" name="lastName"><br>
+                                      <input type="submit" value="Submit">
+                                        <input type="reset" value="Clear fields"><br>
+                            </form>  
+                        </div>                                  
+                </div>
+
+
             </section>
 
         <div class="buttonsContainer">
