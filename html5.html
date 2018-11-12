@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Web Tutorials</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <nav>
+        <ul class="navMenu">
+            <li><a href="index.html">Main page</a></li>
+            <li class="menuActive"><a href="html5.html">HTML5</a></li>
+            <li><a href="javascript.html">JavaScript</a></li>
+            <li><a href="ajax.html">Ajax</a></li>
+            <li><a href="quizzes.html">Quizzes</a>
+                    <ul class="dropDownMenu">
+                    <li><a href="quiz1.html">Quiz1</a></li>
+                    <li><a href="quiz2.html">Quiz2</a></li>
+                    <li><a href="quiz3.html">Quiz3</a></li>
+                </ul>           
+            </li>
+        </ul>
+    </nav>
+    
+    <main>
+        <h2>HTML</h2>
+        
+        <section>
+            <h3>Page-structure elements</h3>
+            <p>These elements are new to HTML5 and now it is recommended to use them to define web page structure instead of div elements, and of course 
+                instead of HTML tables. Most browsers will display the page-structure elements with the block display value.
+            </p>
+            <div class="imageContainer">
+                <img src="page-structure_HTML5_elements.jpg" alt="HTML5 stucture elements"/><br>
+                <p>New HTML5 page-stucture elements. Source <a href="https://www.w3schools.com/html/html5_semantic_elements.asp">W3Schools</a></p>
+            </div>
+
+            <h4>&lt;article&gt; element</h4>
+            <p>The &lt;article&gt; tag specifies independent, self-contained content. An article should make sense on its own and it should be possible to distribute it independently from the rest of the site.
+                Potential sources for the &lt;article&gt; element:
+                <ul>
+                    <li>Forum post </li>
+                    <li>Blog post </li>
+                    <li>News story </li>
+                    <li>Comment</li>
+                </ul>
+            </p>
+
+            <h4>&lt;aside&gt; element</h4>
+            <p>The &lt;aside&gt; tag defines some content aside from the content it is placed in.
+                    The aside content should be related to the surrounding content and could be placed as a sidebar in an article.
+            </p>
+
+            <h4>&lt;header&gt; element</h4>
+            <p>The &lt;header&gt; element specifies a header for a document or section. The &lt;header&gt; element should be used as a container for introductory content.
+                You can have several &lt;header&gt; elements in one document.
+            </p>
+
+            <h4>&lt;section&gt; element</h4>
+            <p>The &lt;section&gt; tag defines sections in a document, such as chapters, headers, footers, or any other sections of the document
+            </p>
+
+            <h4>&lt;details&gt; element</h4>
+            <p>The &lt;details&gt; tag specifies additional details that the user can view or hide on demand.
+                    The &lt;details&gt;  tag can be used to create an interactive widget that the user can open and close. Any sort of content can be put inside the &lt;details&gt; tag.
+                    The content of a &lt;details&gt;  element should not be visible unless the open attribute is set.
+                    The &lt;summary&gt;  tag is used to specify a visible heading for the details. The heading can be clicked to view/hide the details.<br>
+                    <h5>Example</h5>
+                    <div class="example">
+                        <label>HTML code</label><br>
+                        <div class="codeExample">
+                            &lt;details&gt; <br>
+                             &lt;summary&gt;Copyright 1999-2018.&lt;/summary&gt;<br>
+                              &lt;p&gt;  - by Refsnes Data. All Rights Reserved. &lt;/p&gt;<br> 
+                              &lt;p&gt; All content and graphics on this web site are the property of the company Refsnes Data.&lt;/p&gt;<br> 
+                            &lt;/details&gt;<br> 
+                        </div>
+
+                        <label>Results</label><br>
+                        <div class="resultExample">
+                            <details>
+                              <summary>Copyright 1999-2018.</summary>
+                              <p> - by Refsnes Data. All Rights Reserved.</p>
+                              <p>All content and graphics on this web site are the property of the company Refsnes Data.</p>
+                            </details>   
+                        </div>                              
+                    </div>
+            </p>
+        </section>
+
+        <section>
+                <h3>HTML5 input types</h3>
+                <p>The &lt;form&gt; tag is used to create an HTML form for user input. Form elements are different types of input elements, checkboxes, radio buttons, submit buttons, and more.
+                    It can contain one or more of the following form elements:
+                    <ul>
+                        <li>&lt;input&gt;</li>
+                        <li>&lt;textarea&gt;</li>
+                        <li>&lt;button&gt;</li>
+                        <li>&lt;select&gt;</li>
+                        <li>&lt;option&gt;</li>
+                        <li>&lt;optgroup&gt;</li>
+                        <li>&lt;fieldset&gt;</li>
+                        <li>&lt;label&gt;</li>
+                    </ul>
+
+                    <h5>Example</h5>
+                    <div class="example">
+                        <label>HTML code</label><br>
+                        <div class="codeExample">
+                            &lt;form action="#" method="GET"&gt;<br>
+                                      First name:  &lt;input type="text" name="firstName"&gt;<br>
+                                      Last name:  &lt;input type="text" name="lastName"&gt;<br>
+                                       &lt;input type="submit" value="Submit"&gt;
+                            &lt;/form><br> 
+                        </div>
+
+                        <label>Results</label><br>    
+                            <div class="resultExample">                 
+                                <form action="#" method="GET">
+                                          First name: <input type="text" name="firstName"><br>
+                                          Last name: <input type="text" name="lastName"><br>
+                                          <input type="submit" value="Submit"><br>
+                                </form>  
+                            </div>                                  
+                    </div>
+
+                    <p><span>&lt;input&gt;</span> elements provide web developers with a plethora of options depending on the type attribute. Let's review most 
+                    frequently used input types.</p>
+                </p>
+                
+                <h4>&lt;select&gt; element (drop-down list)</h4>
+                <p>The &lt;select&gt; tag defines a drop-down list and allows to define a list of options to select with &lt;option&gt; element. Note, that 
+                    usually the first option is selected by default, however you can select the option you want by adding the attribute selected to a desired option.</p>
+
+                <h5>Example</h5>
+                <div class="example">
+                    <label>HTML code</label><br>
+                    <div class="codeExample">
+                        &lt;select name="cars"&lt;<br>
+                                &lt;option value="volvo"&gt;Volvo&lt;/option&gt;<br>
+                                &lt;option value="saab" selected&gt;Saab&lt;/option&gt;<br>
+                                &lt;option value="fiat"&gt;Fiat&lt;/option&gt;<br>
+                                &lt;option value="audi"&gt;Audi&lt;/option&gt;<br>
+                                &lt;/select&gt;<br>
+                    </div>
+
+                    <label>Results</label><br>    
+                        <div class="resultExample">                 
+                            <select name="cars">
+                                      <option value="volvo">Volvo</option>
+                                      <option value="saab" selected>Saab</option>
+                                      <option value="fiat">Fiat</option>
+                                      <option value="audi">Audi</option>
+                            </select>
+                        </div>                                  
+                </div>
+  
+                <h4>&lt;datalist&gt; element (drop-down list)</h4>
+                <p>The &lt;datalist&gt; element specifies a list of pre-defined options for an &lt;input&gt; element.
+                    Users will see a drop-down list of pre-defined options as they input data.
+                    The list attribute of the &lt;input&gt; element, must refer to the id attribute of the &lt;datalist&gt; element.</p>
+
+                <h5>Example</h5>
+                <div class="example">
+                    <label>HTML code</label><br>
+                    <div class="codeExample">
+                            &lt;form action="#"&gt;<br> 
+                                      &lt;input list="browsers"&gt;<br> 
+                                      &lt;datalist id="browsers"&gt;<br> 
+                                        &lt;option value="Internet Explorer"&gt;<br> 
+                                        &lt;option value="Firefox"&gt;<br> 
+                                        &lt;option value="Chrome"&gt;<br> 
+                                        &lt;option value="Opera"&gt;<br> 
+                                        &lt;option value="Safari"&gt;<br> 
+                                      &lt;/datalist&gt;<br>
+                            &lt;/form&gt;
+                    </div>
+
+                    <label>Results</label><br>    
+                        <div class="resultExample">                 
+                            <form action="#">
+                              <input list="browsers">
+                              <datalist id="browsers">
+                                <option value="Internet Explorer">
+                                <option value="Firefox">
+                                <option value="Chrome">
+                                <option value="Opera">
+                                <option value="Safari">
+                              </datalist> 
+                            </form>
+                        </div>                                  
+                </div>
+    
+            </section>
+
+        <div class="buttonsContainer">
+            <a href="quiz1.html"><button class="mainPageButton">Start quiz</button></a>
+        </div>              
+    </main>
+
+    <footer>
+        &copy; Kirill Golubev 2018 
+    </footer>
+</body>
