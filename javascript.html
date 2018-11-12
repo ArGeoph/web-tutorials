@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Web Tutorials</title>
+    <title>JavaScript Tutorial</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
@@ -25,47 +25,211 @@
             </li>
         </ul>
     </nav>
+    <main>
+        <h2>JavaScript</h2>
+        
+        <section>
+            <h3>JavaScript Variables and Data Types</h3>
+            <p>JavaScript is a dynamically-typed programming language which means that programmers do not need to declare a variable type and that the variable type can be 
+                changed dynamically during the program execution without redeclaring it.
+            </p>
+           
+            <p>The general rules for constructing names for variables (unique identifiers) are:
+                <ul>
+                    <li>Names can contain letters, digits, underscores, and dollar signs</li>
+                    <li>Names must begin with a letter</li>
+                    <li>Names can also begin with $ and _</li>
+                    <li>Names are case sensitive</li>
+                    <li>Reserved words (like switch or class keywords) cannot be used as names</li>
+                </ul>
+            </p>
 
-            <main>
-                <h2>HTML</h2>
+            <p>The latest ECMAScript, also known as <b>ECMAScript 2018</b>, was released in June 2018. The standard defines seven data types, six of which are primitives:
+                <ul>
+                        <li>Boolean</li>
+                        <li>Null</li>
+                        <li>Undefined</li>
+                        <li>Number</li>
+                        <li>String</li>
+                        <li>Symbol (new in ECMAScript 6)</li>
+                        <li>Object</li>
+                </ul>
+            </p>
 
-                <h3>&lt;Article&gt;</h3>
-                <p>To use ESLint please install eslint by running 'npm install eslint' in the workspace folder Part 2 or globally using 'npm install -g eslint'.
-                     You need to reopen the workspace after installing eslint.</p>
+            <h4>JavaScript Numbers</h4>
+            <p>JavaScript has only one type of numbers. Numbers can be written with, or without decimals. Extra large or extra small numbers can be written with scientific (exponential) notation.
+                <h5>Example</h5>
+                <div class="example">
+                    <label>JavaScript code</label><br>
+                    <div class="codeExample">
+                            var x1 = 88.00; // Written with decimals <br>
+                            var x2 = 88; // Written without decimals  <br>
+                            var y = 12e5; // 1200000 <br>
+                            var z = 12e-3; // 0.012 <br>
+                    </div>                                         
+                </div>
+            </p>
 
-                <h3>&lt;article&gt;</h3>
-                <p>To use ESLint please install eslint by running 'npm install eslint' in the workspace folder Part 2 or globally using 'npm install -g eslint'.
-                        You need to reopen the workspace after installing eslint.</p>   
+            <h4>JavaScript Booleans</h4>
+            <p>JavaScript, like all programming languages, has the Boolean data type that can have only two values: false or true. The data type is mostly used in 
+                conditional testing.    
+                <h5>Example</h5>
+                <div class="example">
+                    <label>JavaScript code</label><br>
+                    <div class="codeExample">
+                            var amITrue = true; <br>
+                            var amITrue = false; <br>
+                    </div>                                         
+                </div>
+            </p>
 
-                <h3>&lt;header&gt;</h3>
-                <p>To use ESLint please install eslint by running 'npm install eslint' in the workspace folder Part 2 or globally using 'npm install -g eslint'.
-                        You need to reopen the workspace after installing eslint.</p> 
-            
-                <h3>&lt;main&gt;</h3>
-                <p>To use ESLint please install eslint by running 'npm install eslint' in the workspace folder Part 2 or globally using 'npm install -g eslint'.
-                        You need to reopen the workspace after installing eslint.</p> 
+            <h4>Undefined and Null</h4>
+            <p>In JavaScript, a variable without a value, has the value undefined. Also, any variable can be emptied,
+                by setting the value to undefined. The type will also be undefined. <br> By contrast, null is assigned intenionally by programmmers to show that the 
+                variable doesn't point to any objects. Be aware that checking the type of a variable, having null value, object type will be returned. This can be viewed as 
+                one of the JavaScript bugs.
+                <h5>Example</h5>
+                <div class="example">
+                    <label>JavaScript code</label><br>
+                    <div class="codeExample">
+                            var person; // Value is undefined, type is undefined<br>
+                            typeof undefined // undefined<br>
+                            typeof null // object<br>
+                    </div>                                         
+                </div>
+            </p>
+        </section>
 
-                <h3>&lt;Article&gt;</h3>
-                <p>To use ESLint please install eslint by running 'npm install eslint' in the workspace folder Part 2 or globally using 'npm install -g eslint'.
-                     You need to reopen the workspace after installing eslint.</p>
+        <section>
+                <h3>JavaScript Arrays</h3>
+                <p>JavaScript arrays are used to store multiple values in a single variable. An array is a special variable, which can hold more than one value at a time.</p>
+                <p>JavaScript provides programmers with a few options to create an array. 
+                        The first method is called array literal and it is the simplest way to create an array in JavaScript:<br>
+                        <span>var cities = ["Calgary", "London", "Toronto", "Vancouver"];</span><br>
+                        
+                        Another way to create an array is to call the Array object constructor with the new keyword:<br>
+                        <span>var cities = new Array("Calgary", "London", "Toronto", "Vancouver");</span><br>
+                        However, this method is not recommended, because it complicates the code and in some cases results can be unpredictable.
+                        For instance, <span>testArray = new Array(10);</span> creates an empty array with 10 undefined elements, whereas <span>var testArray = new Array(10, 10);</span> 
+                        creates an array with two elements 10 and 10.
+                    
+                </p>
 
-                <h3>&lt;article&gt;</h3>
-                <p>To use ESLint please install eslint by running 'npm install eslint' in the workspace folder Part 2 or globally using 'npm install -g eslint'.
-                        You need to reopen the workspace after installing eslint.</p>   
+                <h4>Array methods and properties</h4>
+                <p>Array property length returns the current length of the array:                        
+                    <h5>Example</h5>
+                    <div class="example">
+                        <label>JavaScript code</label><br>
+                        <div class="codeExample">
+                            var cities = ["Calgary", "London", "Toronto", "Vancouver"];<br>
+                            console.log(cities.length); //prints 4 to the console<br>
+                        </div>                                         
+                    </div>
+                </p>
+                <p>JavaScript offers numerous build-in functions for arrays manipulation. Method <span>toString()</span> converts an array to a string containing 
+                    array elements separated by commas:
+                    <h5>Example</h5>
+                    <div class="example">
+                        <label>JavaScript code</label><br>
+                        <div class="codeExample">
+                                var cities = ["Calgary", "London", "Toronto", "Vancouver"];<br>
+                                console.log(fruits.toString()); //Calgary, London, Toronto, Vancouver will be printed to the console<br>
+                        </div>                                         
+                    </div>
+                </p>       
+                <p>The <span>join()</span> method also joins all array elements into a string. Its behaviour similair to <span>toString()</span>, but in addition you can specify the separator:
+                    <h5>Example</h5>
+                    <div class="example">
+                        <label>JavaScript code</label><br>
+                        <div class="codeExample">
+                                var cities = ["Calgary", "London", "Toronto", "Vancouver"];<br>
+                                console.log(fruits.join(“+“)); //Calgary+London+Toronto+Vancouver will be printed to the console<br>
+                        </div>                                         
+                    </div>
+                </p>       
+                <p>Methods <span>push()</span> or <span>pop()</span> can be used to easily add or remove the last element of an array: 
+                    <h5>Example</h5>
+                    <div class="example">
+                        <label>JavaScript code</label><br>
+                        <div class="codeExample">
+                            var cities = ["Calgary", "London", "Toronto", "Vancouver"];<br>
+                            cities.push(“Prague”); //Adds“Prague as the last element, so now the array contains "Calgary", "London", "Toronto", "Vancouver", “Prague”<br>
+                            cities.pop(); //Removes the last element from the array, i.e. Prague. So so now the array contains "Calgary", "London", "Toronto", "Vancouver"<br>
+                        </div>                                         
+                    </div>
+                </p>             
+                <p>JavaScripts also has built-in methods allowing to delete or add an element to the beginning of an array. Method <span>shift()</span> 
+                    removes the first element of an array and <span>unshift()</span> adds a new element to the beginning of an array:
+                    <h5>Example</h5>
+                    <div class="example">
+                        <label>JavaScript code</label><br>
+                        <div class="codeExample">
+                                var cities = ["Calgary", "London", "Toronto", "Vancouver"];<br>
+                                cities.shift(); //Removes the first element from the array, i.e. Calgary. Now the array contains "London", "Toronto", "Vancouver"<br>
+                                cities.unshift(“Rome”); //Adds Rome to the beginning of an array. Now the array contains "Rome", "London",  "Toronto", "Vancouver"<br>
+                        </div>                                         
+                    </div>
+                </p>
+                <p>An element with specific index number can be deleted with operator <span>delete</span>. Though, it is not recommended, because it leaves “holes” in an array:                           
+                    <h5>Example</h5>
+                    <div class="example">
+                        <label>JavaScript code</label><br>
+                        <div class="codeExample">
+                                var cities = ["Calgary", "London", "Toronto", "Vancouver"];<br>
+                                delete cities[2]; //Changes the third element ‘Toronto” to undefined<br>
+                        </div>                                         
+                    </div>
+                </p>
+                <p>In addition to the built-in methods that have been reviewed, JavaScript offers much more methods that can make programmer's life easier.<br>
+                    The method <span>splice()</span> can be used in two modes. The first mode allows to add new elements to an array:                                                                    
+                    <h5>Example</h5>
+                    <div class="example">
+                        <label>JavaScript code</label><br>
+                        <div class="codeExample">
+                            var cities = ["Calgary", "London", "Toronto", "Vancouver"];<br>
+                            cities.splice(1, 0, “Vienna”, “Tokio”); // “Vienna”, “Tokio” are added to the array after element with index 0<br>
+                        </div>                                         
+                    </div>
+                    <p>The first parameter in the method <span>splice()</span> (1) defines the position where new elements should be added.
+                        The second parameter (0) defines the number of elements that should be removed. The last parameters (Vienna”, “Tokio”) define 
+                        the elements that will be added.
+                    </p>
+                    <p>The second mode can be used to remove elements from an array without leaving holes:
+                    </p>
+                    <div class="example">
+                        <label>JavaScript code</label><br>
+                        <div class="codeExample">
+                                var cities = ["Calgary", "London", "Toronto", "Vancouver"];<br>
+                                cities.splice(1, 2); //Removes "London" and "Toronto" from the array<br>
+                        </div>                                         
+                    </div>
+                    <p>
+                        The first parameter (1) is an array element position from which removal will start. Note that the position is inclusive. 
+                        The second parameter is the number of elements that will be removed.
+                    </p>
+                    <p>
+                        JavaScript also allows to reverse and sort arrays with build-in methods <span>reverse()</span> and <span>sort()</span>, respectively.
+                        <div class="example">
+                            <label>JavaScript code</label><br>
+                            <div class="codeExample">
+                                var numbers = [45, 1, -65, 78, 15];<br>
+                                numbers.sort(); //The array is sorted now and contains the elements in following order: -65, 1, 15, 45, 78<br>
+                                numbers.sort(); //The array is reversed and now it contains the elements in following order: 78, 45, 15, 1, -65<br>
+                            </div>                                         
+                        </div>
+                    </p>
+                </p>   
+    
+            <p class="source">Materials from <a href="https://www.w3schools.com/js/js_array_methods.asp">W3Schools</a>, <a href="https://en.wikipedia.org/wiki/JavaScript">Wikipedia</a> 
+                and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures">MDN Web Docs</a> were used</p>
+        </section>
 
-                <h3>&lt;header&gt;</h3>
-                <p>To use ESLint please install eslint by running 'npm install eslint' in the workspace folder Part 2 or globally using 'npm install -g eslint'.
-                        You need to reopen the workspace after installing eslint.</p> 
-            
-                <h3>&lt;main&gt;</h3>
-                <p>To use ESLint please install eslint by running 'npm install eslint' in the workspace folder Part 2 or globally using 'npm install -g eslint'.
-                        You need to reopen the workspace after installing eslint.</p>  
-                <div class="buttonsContainer">
-                    <a href="html5_css.html"><button class="mainPageButton">Start quiz</button></a>
-                </div>              
-            </main>
+        <div class="buttonsContainer">
+            <a href="quiz2.html"><button class="mainPageButton">Start quiz</button></a>
+        </div>              
+    </main>
 
-            <footer>
-                &copy; Kirill Golubev 2018 
-            </footer>
+    <footer>
+        &copy; Kirill Golubev 2018 
+    </footer>
 </body>

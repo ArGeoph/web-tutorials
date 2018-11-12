@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ajax Tutorial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <nav>
+        <ul class="navMenu">
+            <li><a href="index.html">Main page</a></li>
+            <li><a href="html5.html">HTML5</a></li>
+            <li><a href="javascript.html">JavaScript</a></li>
+            <li class="menuActive"><a href="ajax.html">Ajax</a></li>
+            <li><a href="quizzes.html">Quizzes</a>
+                    <ul class="dropDownMenu">
+                    <li><a href="quiz1.html">Quiz1</a></li>
+                    <li><a href="quiz2.html">Quiz2</a></li>
+                    <li><a href="quiz3.html">Quiz3</a></li>
+                </ul>           
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Ajax</h2>        
+        <section>
+                <p><span>Ajax</span> (stands for <i><span>Asynchronous JavaScript and XML</span></i>) is a set of technologies on the client side that allows to create asynchronous web applications. 
+                    In other words, users can still interact with Web applications while previous requests are being executed asynchronously, and not just wait for results staring at a "frozen" page.<br>
+                </p>
+                <div class="imageContainer">
+                    <img src="585px-Ajax-vergleich-en.svg.png" alt="Comparison of synchronous and asynchronous (Ajax) requests"/><br>
+                    <p>Comparison of synchronous and asynchronous (Ajax) requests. Source <a href="https://en.wikipedia.org/wiki/Ajax_(programming)">Wikipedia - Ajax (programming)</a></p>
+                </div>
+                <p>Despite the "x" in its name, meaning XML, to facilitate simple and reliable data exchange modern Ajax is most commonly used with JSON instead of XML.  
+                    JSON (stands for <i><span>JavaScript Object Notation</span></i>) is a lightweight language independent data-exchange standard.
+                </p>
+                <div class="example">
+                    <label>JSON file containing pictures details</label><br>
+                    <div class="codeExample">
+                            {"pictures" : [<br>
+                            {"fileLocation": "Pictures/IMG_0384.JPG", "caption": "The Forbidden City, Beijing, China"},<br>
+                            {"fileLocation": "Pictures/IMG_0547.JPG", "caption": "The National Gallery, Berlin, Germany"},<br>
+                            {"fileLocation": "Pictures/IMG_0787.JPG", "caption": "The University of Potsdam and New Palace, Germany"},<br>
+                            {"fileLocation": "Pictures/IMG_0908.JPG", "caption": "Marienplatz, Munich, Germany"},<br>
+                            {"fileLocation": "Pictures/IMG_1023.JPG", "caption": "The Old city, Nürnberg, Germany"},<br>
+                            {"fileLocation": "Pictures/IMG_1217.JPG", "caption": "The Neuschwanstein Castle, Germany"},<br>
+                            {"fileLocation": "Pictures/IMG_1420.JPG", "caption": "Hallstatt, Austria"}]}<br>
+                    </div>                                         
+                </div>
+                <p><span>XMLHttpRequest</span> object can be used to create, send and exchange data between a web application and a server in the asynchronous mode. 
+                    <div class="example">
+                        <label>JavaScript code </label><br>
+                        <div class="codeExample">
+                            const loadPicturesDetails = () => {<br>
+                                try {<br>
+                                    let request = new XMLHttpRequest();<br>
+                                    request.onreadystatechange = () => {<br>
+                                    if (request.readyState === 4 && request.status === 200) {<br>
+                                        images = JSON.parse(request.responseText).pictures;<br>
+                                        console.log(images);<br>
+                                        images.forEach((picture, index) => {<br>
+                                            console.log(index, picture.fileLocation, picture.caption);<br>
+                                        });<br>
+                                    }}<br>
+                                <br>
+                                request.open("Get", "picturesInfo.json", true);<br>
+                                request.responseType = "text";<br>
+                                request.send();}<br>
+                                catch(networkError) {<br>
+                                    console.log(networkError);<br>
+                                }};<br>                            
+                        </div>                                         
+                    </div> 
+                    <p>In the code above <span>XMLHttpRequest</span> obejct is created and an event listener is added to it to "listen" for any changes in the event type onreadystatechange.
+                        If the onreadystatechange event happens, we check if our request is completed successfully by <span><i>if (request.readyState === 4 && request.status === 200)</i></span>.<br>
+                        <span>request.readyState === 4</span>span> and <span>request.status === 200</span> here mean that request is finished and the request status is successful, respectively.<br>  In the code above,
+                        we create a GET request to "picturesInfo.json" a .json file stored locally, but in most cases it will be a remote server. We send the request by <span>request.send();</span>
+                    </p>                    
+                </p>
+
+                <p>To make asynchronous event handling easier <span>JavaScript ES6</span> introduced a new object, <span>promise</span>. A promise is an object that handles asynchronous data. A promise has three states:
+                    <ul>
+                        <li>pending : when a promise is created or waiting for data</li>
+                        <li>pending : when a promise is created or waiting for data</li>
+                        <li>fulfilled : the asynchronous operation was handled successfully</li>
+                        <li>rejected : the asynchronous operation was unsuccessful</li>
+                    </ul> 
+                    <p>Promises allow programmers to chain additional methods to the original promise which will be called as soon as the original promise is fulfilled or rejected.</p>
+
+                    <div class="example">
+                        <label>JavaScript code </label><br>
+                        <div class="codeExample">
+                            const loadPicturesDetails = async () => {<br>
+                                try {<br>
+                                const response = await fetch("picturesInfo.json");<br>                                    
+                                if (response.ok) {<br>
+                                const responseJson = await response.json();<br>
+                                console.log(responseJson);<br>
+                                imagesDetails = await responseJson.pictures;<br>
+                                return imagesDetails;}}<br>
+                                catch(networkError) {<br>
+                                console.log(networkError);}};<br>                        
+                        </div>  
+                    </div>
+                    <p>In the code above <span>XMLHttpRequest</span> obejct is created and an event listener is added to it to "listen" for any changes in the event type onreadystatechange.
+                        If the onreadystatechange event happens, we check if our request is completed successfully by <span><i>if (request.readyState === 4 && request.status === 200)</i></span>.<br>
+                        <span>request.readyState === 4</span>span> and <span>request.status === 200</span> here mean that request is finished and the request status is successful, respectively.<br>  In the code above,
+                        we create a GET request to "picturesInfo.json" a .json file stored locally, but in most cases it will be a remote server. We send the request by <span>request.send();</span>
+                    </p>  
+                </p>
+    
+            <p class="source">Materials from <a href="https://en.wikipedia.org/wiki/Ajax_(programming)">Wikipedia - Ajax (programming)</a>, 
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest">MDN Web Docs</a> and 
+                <a href="https://www.codecademy.com/courses/introduction-to-javascript/lessons/requests-ii/exercises/requests-intro-ii?action=resume_content_item">CodeCademy</a>, 
+                were used</p>
+        </section>
+
+        <div class="buttonsContainer">
+            <a href="quiz2.html"><button class="mainPageButton">Start quiz</button></a>
+        </div>              
+    </main>
+
+    <footer>
+        &copy; Kirill Golubev 2018 
+    </footer>
+</body>
