@@ -5,8 +5,6 @@ let submitButton, resetButton;
 //Method called when page is fully loaded to initialize app
 const initialize = () => {
     quizContainer = document.getElementById("quiz1Container");
-    submitButton = document.getElementById("quizSubmitButton");
-    resetButton = document.getElementById("quizResetButton");
 
     //load all questions from .json file
     loadQuiz().then(() => renderQuiz());
@@ -38,18 +36,18 @@ const renderQuiz = async () => {
     }
 
     else {
-        outputCode += "<h2>Quiz 1, HTML5</h2><form id='quiz'>";
+        outputCode += "<h2>Quiz 1, HTML5</h2><form action='#' id='quiz'>";
 
         quizzes.forEach((quiz, index) => { 
             outputCode += `<div class="quizContainer" id="quizQuestion${index}"><h3>Question ${index + 1}</h3>` + 
             `<p class="quizQuestion">${quiz.quizQuestion}</p>` +
             `<div class="optionsContainer">`;
-            quiz.options.forEach(option => outputCode += `<p><input type="radio" name="quizQuestion${index + 1}Answer" value="${option}">${option}</p>`);
+            quiz.options.forEach(option => outputCode += `<p><input type="radio" name="quizQuestion${index + 1}Answer" value="${option}" >${option}</p>`);
             outputCode += "</div></div>";
         });
 
         outputCode += '<div class="buttonsContainer">' + 
-        '<button id="quizSubmitButton" class="mainPageButton">Submit answers</button>' + 
+        '<input type="button" id="quizSubmitButton" class="mainPageButton" value="Submit answers" />' + 
         '<input type="reset" id="quizResetButton" class="mainPageButton" value="Reset quiz">' + 
         '</div></form>';
     }
@@ -57,25 +55,53 @@ const renderQuiz = async () => {
     quizContainer.innerHTML = outputCode;
 
     //Add event listeners to buttons 
-    submitButton = document.getElementById("quizSubmitButton");    
+    submitButton = document.getElementById("quizSubmitButton");  
     submitButton.addEventListener('click', evaluateQuiz, false);
 
 };
 
-//Method used to reset quiz 
+//Method used to check the answers quiz 
 const evaluateQuiz = () => {
+    let wrongAnswerNumber = 0;
+    let wrongAnswers = "<h3>Incorrect answers<h3><form action='#' id='quiz'>";
+    let options = "";
 
-    if (window.confirm("Are sure to send your answers?")) {
+    if (window.confirm("Are your sure to complete the quiz and send the answers for the evaluation?")) {
         let questions = document.getElementsByClassName("optionsContainer");
-
+        
         //Iterate throuhg all options to clear selection
-        for(let i = 0; i < questions.length; i++) {
-            console.log(i);
-            for (let k = 0; k < questions[i].length; k++) {
-                console.log(k);
-                questions[i][k].checked = false;
+        for (let questionIndex = 0; questionIndex < questions.length; questionIndex++) { //Iterate through all questions
+            options = questions[questionIndex].children;
+
+            for (let optionIndex = 0; optionIndex < options.length; optionIndex++) { //Iterate through all options of the given question
+                if(options[optionIndex].firstChild.checked) { //Check if user selected answer 
+                    console.log(options[optionIndex].firstChild.value);
+                    if (options[optionIndex].firstChild.value === quizzes[questionIndex].correctAnswer) {//compare user answer with correct answer
+                        console.log("Correct answer!");
+                    } 
+                    else {
+                        console.log("Incorrect answer!");
+                        wrongAnswerNumber++; 
+                        wrongAnswers += questions[questionIndex].parent;
+
+
+                    }
+                    break; //We can go to the next question to reduce computation time, because in radio button only one answer can be selected
+                }
             }
         }
+
+        console.log(wrongAnswers);
+        // for(let i = 0; i < questions.length; i++) {
+        //     console.log(i);
+        //     for (let k = 0; k < questions[i].length; k++) {
+        //         console.log(k);
+        //         questions[i][k].checked = false;
+        //     }   
+        // }
+    }
+    else {
+        return;
     }
 
 };
