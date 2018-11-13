@@ -42,13 +42,13 @@ const renderQuiz = async () => {
             outputCode += `<div class="quizContainer" id="quizQuestion${index}"><h3>Question ${index + 1}</h3>` + 
             `<p class="quizQuestion">${quiz.quizQuestion}</p>` +
             `<div class="optionsContainer">`;
-            quiz.options.forEach(option => outputCode += `<p><input type="radio" name="quizQuestion${index + 1}Answer" value="${option}" >${option}</p>`);
+            quiz.options.forEach(option => outputCode += `<p><input type="radio" name="quizQuestion${index + 1}Answer" value="${option}" />${option}</p>`);
             outputCode += "</div></div>";
         });
 
         outputCode += '<div class="buttonsContainer">' + 
         '<input type="button" id="quizSubmitButton" class="mainPageButton" value="Submit answers" />' + 
-        '<input type="reset" id="quizResetButton" class="mainPageButton" value="Reset quiz">' + 
+        '<input type="reset" id="quizResetButton" class="mainPageButton" value="Reset quiz" />' + 
         '</div></form>';
     }
 
@@ -62,43 +62,69 @@ const renderQuiz = async () => {
 
 //Method used to check the answers quiz 
 const evaluateQuiz = () => {
+    let questions = document.getElementsByClassName("optionsContainer");
+    let numberOfQuestions = questions.length;
     let wrongAnswerNumber = 0;
-    let wrongAnswers = "<h3>Incorrect answers<h3><form action='#' id='quiz'>";
-    let options = "";
+    let score = 0;
+    let options;
+    let formObject = document.createElement("form");
 
-    if (window.confirm("Are your sure to complete the quiz and send the answers for the evaluation?")) {
-        let questions = document.getElementsByClassName("optionsContainer");
+    formObject.setAttribute("id", "quiz");    
+
+    if (window.confirm("Are your sure to complete the quiz and send the answers for the evaluation?")) { //Ask user if ther really want to complete the quiz
         
         //Iterate throuhg all options to clear selection
-        for (let questionIndex = 0; questionIndex < questions.length; questionIndex++) { //Iterate through all questions
+        for (let questionIndex = 0; questionIndex < questions.length; questionIndex++)  {//Iterate through all questions
             options = questions[questionIndex].children;
 
             for (let optionIndex = 0; optionIndex < options.length; optionIndex++) { //Iterate through all options of the given question
-                if(options[optionIndex].firstChild.checked) { //Check if user selected answer 
-                    console.log(options[optionIndex].firstChild.value);
-                    if (options[optionIndex].firstChild.value === quizzes[questionIndex].correctAnswer) {//compare user answer with correct answer
-                        console.log("Correct answer!");
-                    } 
-                    else {
-                        console.log("Incorrect answer!");
-                        wrongAnswerNumber++; 
-                        wrongAnswers += questions[questionIndex].parent;
 
+                if (options[optionIndex].firstChild.value === quizzes[questionIndex].correctAnswer) {//find correct answer                    
 
+                    if(options[optionIndex].firstChild.checked) {//check if user selected the same answer
+                        break; //we can go to the next question now
                     }
-                    break; //We can go to the next question to reduce computation time, because in radio button only one answer can be selected
-                }
+                    else { //if user selected different answer or didn't select answer at all
+                        options[optionIndex].setAttribute("class", "correctAnswer"); //Mark correct answer it 
+                        options[optionIndex].innerHTML += "<label><b>Correct answer</b></label>"
+
+                        //Iterate through al options to find user answer 
+                        for (let k = 0; k < options.length; k++) {
+                            if(options[k].firstChild.checked) {
+                                options[k].setAttribute("class", "wrongAnswer"); //if user selected answer mark it    
+                                options[k].innerHTML += "<label><b>Your answer</b></label>"
+                            }
+                        }
+                       
+                        wrongAnswerNumber++; 
+                        formObject.innerHTML += questions[questionIndex].parentElement.innerHTML; //Add wrong question to output
+                    }
+                }                 
             }
         }
 
-        console.log(wrongAnswers);
-        // for(let i = 0; i < questions.length; i++) {
-        //     console.log(i);
-        //     for (let k = 0; k < questions[i].length; k++) {
-        //         console.log(k);
-        //         questions[i][k].checked = false;
-        //     }   
-        // }
+        quizContainer.removeChild(document.getElementById("quiz"));
+        score = Math.round(((numberOfQuestions - wrongAnswerNumber)/numberOfQuestions)*100); //Calculate score
+
+        let headingH3 = document.createElement("h3");
+        let headingH2 = document.createElement("h2")
+
+        if (wrongAnswerNumber > 0) { //If there's any wrong answers 
+            headingH2.appendChild(document.createTextNode(`The number of incorrect answers ${wrongAnswerNumber} out of ${numberOfQuestions}. Your score is ${score}%`));
+            quizContainer.appendChild(headingH2);
+            headingH3.appendChild(document.createTextNode("The list of incorrect answers"));
+            quizContainer.appendChild(headingH3);
+
+            quizContainer.appendChild(formObject);        }
+        else {
+            headingH2.appendChild(document.createTextNode(`Congratulations! You answered all ${numberOfQuestions} questions correctly! Your score is 100%`));
+            quizContainer.appendChild(headingH2);
+        }
+
+        //Add pass quiz again button
+        quizContainer.innerHTML += '<div class="buttonsContainer">' + 
+        '<a href="quiz1.html"><button class="mainPageButton">Repeat quiz</button></a>' + 
+        '</div>';
     }
     else {
         return;

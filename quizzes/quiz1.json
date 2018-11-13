@@ -3,7 +3,7 @@
     "options": ["p", "a", "image", "img", "div"],
     "correctAnswer" : "img"},
     {"quizQuestion": "Which HTML tag defines independent, self-contained content?", 
-        "options": ["article", "nav", "footer", "summary", "none of the above"],
+        "options": ["article", "nav", "footer", "summary", "none"],
         "correctAnswer" : "article"},
     {"quizQuestion": "Which HTML tag defines a drop-down list with different options?", 
         "options": ["textArea", "datalist", "option", "form", "select"],
