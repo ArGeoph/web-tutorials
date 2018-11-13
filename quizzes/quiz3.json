@@ -1,0 +1,17 @@
+{"quiz" : [
+    {"quizQuestion": "What does AJAX stand for?", 
+    "options": ["Asynchronous Java and Xtreme programming", "Asynchronous JavaScript and Cross origin requests", "Asynchronous JavaScript and XML", "none of the above"],
+    "correctAnswer" : "Asynchronous JavaScript and XML"},
+    {"quizQuestion": "Which JavaScript object can be used to send an asynchronous request?", 
+        "options": ["async", "XMLHttpRequest", "AsynchronousRequest", "request", "none of the above"],
+        "correctAnswer" : "XMLHttpRequest"},
+    {"quizQuestion": "Which object was introduced in JavaScript ES6 to make asynchronous event handling easier?", 
+        "options": ["promise", "request", "number", "obligation", "promises"],
+        "correctAnswer" : "promise"},
+    {"quizQuestion": "Which data-exchange standard is commonly used as an alternative to XML in asynchronous requests?", 
+        "options": ["JML", "SQL", "dtd", "doc", "JSON"],
+        "correctAnswer" : "JSON"},
+    {"quizQuestion": "What is the only state that a JavaScript promise object cannot have?", 
+        "options": ["fulfilled", "completed", "pending", "rejected"],
+        "correctAnswer" : "completed"}
+]}

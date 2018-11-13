@@ -1,1 +1,20 @@
-{"quiz" : []}
+{"quiz" : [
+    {"quizQuestion": "What is a correct variable name in JavaScript?", 
+    "options": ["class", "switch", "_name", "45name", "for"],
+    "correctAnswer" : "_name"},
+    {"quizQuestion": "Which data type assigned intentionally by programmers to show that the variable isn't pointing to any objects?", 
+        "options": ["undefined", "null", "empty", "void", "none of the above"],
+        "correctAnswer" : "null"},
+    {"quizQuestion": "Which JavaScript array property contains the array size?", 
+        "options": ["length", "size", "number", "toString", "next   "],
+        "correctAnswer" : "length"},
+    {"quizQuestion": "JavaScript doesn't have any built-in methods to sort arrays", 
+        "options": ["true", "false"],
+        "correctAnswer" : "false"},
+    {"quizQuestion": "What JavaScript build-in method shift() is doing?", 
+        "options": ["It adds an empty element to array end", "It removes last element in the array", "It removes the first element in the array", "It adds an empty element to the beginning of the array" ],
+        "correctAnswer" : "It removes the first element in the array"},
+    {"quizQuestion": "Which new JavaScript datatype was introduced in in ECMAScript 6?", 
+        "options": ["Object", "String", "Symbol", "Boolean", "Undefined"],
+        "correctAnswer" : "Symbol"}
+]}

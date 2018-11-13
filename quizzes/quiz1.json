@@ -3,9 +3,19 @@
     "options": ["p", "a", "image", "img", "div"],
     "correctAnswer" : "img"},
     {"quizQuestion": "Which HTML tag defines independent, self-contained content?", 
-        "options": ["article", "nav", "footer", "summary", "none"],
+        "options": ["article", "nav", "footer", "summary", "none of the above"],
         "correctAnswer" : "article"},
     {"quizQuestion": "Which HTML tag defines a drop-down list with different options?", 
         "options": ["textArea", "datalist", "option", "form", "select"],
-        "correctAnswer" : "select"}
+        "correctAnswer" : "select"},
+    {"quizQuestion": "What do you need to do to allow users to select only one option from many others in the input type radio?", 
+        "options": ["set id attribute of all options to the same value", "set name attribute of all options to the same value", "set class attribute of all options to the same value",
+             "there's no way to do it"],
+        "correctAnswer" : "set name attribute of all options to the same value"},
+    {"quizQuestion": "Which HTML input type is the most suitable for user passwords input?", 
+        "options": ["input type='password'", "input type='text'", "input type='submit'", "none of the above"],
+        "correctAnswer" : "input type='password'"},
+    {"quizQuestion": "Which HTML tag specifies additional details that the user can view or hide on demand?", 
+        "options": ["summary", "details", "demand", "button", "none of the above"],
+        "correctAnswer" : "details"}
 ]}

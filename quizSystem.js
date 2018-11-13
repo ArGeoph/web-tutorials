@@ -1,10 +1,26 @@
 let quizContainer;
 let quizzes = []; //array will store all questions 
 let submitButton, resetButton; 
+let urlToFetch;
 
 //Method called when page is fully loaded to initialize app
 const initialize = () => {
     quizContainer = document.getElementById("quiz1Container");
+
+    //set url to fetch depending on quiz
+    switch(document.title) {
+        case "Web Tutorials - Quiz 1":
+            urlToFetch = "quizzes/quiz1.json";
+            break;
+        case "Web Tutorials - Quiz 2":
+            urlToFetch = "quizzes/quiz2.json";
+            break;
+        case "Web Tutorials - Quiz 3":
+            urlToFetch = "quizzes/quiz3.json";
+            break;
+        default:
+            console.log("Error!");        
+    }
 
     //load all questions from .json file and render quiz content after that
     loadQuiz().then(() => renderQuiz());
@@ -14,7 +30,7 @@ const initialize = () => {
 //Asyncronous method to load all questions for the quiz
 const loadQuiz = async () => {
     try {
-        const request = await fetch("quizzes/quiz1.json");
+        const request = await fetch(urlToFetch);
 
         if (request.ok) { //if request is successfull
             const responseJson = await request.json();
@@ -29,14 +45,13 @@ const loadQuiz = async () => {
 //Asynchronous method to render quizzes content
 const renderQuiz = async () => {
     let outputCode = "";
-    console.log(quizzes);
  
     if (quizzes.length === 0) { //If no quizes were added or there's so problems with the Internet print message
         outputCode = "<h2>Quizzes cannot be loaded at the moment. Please, check your Internet connection, or visit the page later";
     }
 
     else {
-        outputCode += "<h2>Quiz 1, HTML5</h2><form action='#' id='quiz'>";
+        outputCode += "<form action='#' id='quiz'>";
 
         quizzes.forEach((quiz, index) => { 
             outputCode += `<div class="quizContainer" id="quizQuestion${index}"><h3>Question ${index + 1}</h3>` + 
@@ -52,12 +67,13 @@ const renderQuiz = async () => {
         '</div></form>';
     }
 
-    quizContainer.innerHTML = outputCode;
+    quizContainer.innerHTML += outputCode;
 
     //Add event listeners to buttons 
     submitButton = document.getElementById("quizSubmitButton");  
-    submitButton.addEventListener('click', evaluateQuiz, false);
-
+    if (submitButton != null) {
+        submitButton.addEventListener('click', evaluateQuiz, false);
+    }
 };
 
 //Method used to check users answers
@@ -126,13 +142,12 @@ const evaluateQuiz = () => {
 
         //Add pass quiz again button
         quizContainer.innerHTML += '<div class="buttonsContainer">' + 
-        '<a href="quiz1.html"><button class="mainPageButton">Repeat quiz</button></a>' + 
+        `<a href="${window.location.href}"><button class="mainPageButton">Repeat quiz</button></a>` + 
         '</div>';
     }
     else { //if user doesn't want to send their answers
         return;
     }
-
 };
 
 window.addEventListener("load", initialize, false); 
