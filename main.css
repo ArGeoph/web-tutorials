@@ -255,6 +255,7 @@ section > ul > li {
     display: flex;
     justify-content: space-around;
     padding: 50px;
+    flex-wrap: wrap;
 }
 .imageContainer {
     margin: 40px 0px 40px 0px;
@@ -304,7 +305,6 @@ section > ul > li {
 
 /*            Quizzes pages
 =========================================*/
-
 #quiz {
     text-align: center;
 }
@@ -372,11 +372,9 @@ span {
     nav {
         height: 110px;
     }
-
     .imageContainer img {
         width: 800px;
     }
-
     section > p {
         margin: 10px 20px 0px 40px;
         font-size: 1.3em;
@@ -435,7 +433,6 @@ span {
     .imageContainer img {
         width: 400px;
     }
-
     section > p {
         margin: 10px 20px 0px 40px;
         font-size: 1.1em;
@@ -470,6 +467,40 @@ span {
         color: white;
         font-size: 1.4em;
         border-top: 2px groove white;
+    }
+    .description, .banner, .content, .quizMain {
+        height: 350px;
+    }
+    .description p, .banner h2, .content h2, .quizMain h2 {
+        margin: 0 50px;
+        letter-spacing: 2px;
+        font-size: 1.8em;
+    }
+    /*Style for quizzes
+    ===========================*/
+    #quiz {
+        margin: 10px 30px;
+    }
+    .quizContainer h3 {
+        font-weight: bold;
+        font-size: 1.3em;         
+    }
+    .quizQuestion {
+
+        font-weight: bold;
+        font-size: 1.2em; 
+        margin: 0px 0px;
+    }
+    .optionsContainer {
+        display: block;
+        text-align: left;
+        width: 100%;
+        
+    }
+    .optionsContainer > p {
+        padding: 0px 0px;
+
+        font-size: 1.1em;
     }
 }
 
